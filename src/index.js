@@ -88,7 +88,7 @@ function printDebugValues(obj) {
 class Knob extends Component<KnobProps, KnobState> {
   container: any;
   scale: any;
-  scaleProps: {min: number, max: number, clampMin: number, clampMax: number}
+  scaleProps: { min: number, max: number, clampMin: number, clampMax: number }
   inputRef: any;
   controlled: boolean;
 
@@ -156,7 +156,7 @@ class Knob extends Component<KnobProps, KnobState> {
           .range([this.props.clampMax, this.props.clampMin]);
       }
       this.scale.clamp(true);
-      this.scaleProps = {min: this.props.min, max: this.props.max, clampMin: this.props.clampMin, clampMax: this.props.clampMax}
+      this.scaleProps = { min: this.props.min, max: this.props.max, clampMin: this.props.clampMin, clampMax: this.props.clampMax }
     }
     return this.scale
   }
@@ -431,24 +431,23 @@ class Knob extends Component<KnobProps, KnobState> {
           >
             <SvgProxy
               selector="#knob"
-              transform={`$ORIGINAL rotate(${angle}, ${skin.knobX}, ${
-                skin.knobY
+              transform={`$ORIGINAL rotate(${angle}, ${skin.knobX}, ${skin.knobY
                 })`}
             />
             {skinElemUpdates}
           </SvgLoader>
         </div>
 
-        {this.state.dragging &&
-          this.props.preciseMode && (
-            <KnobVisualHelpers
-              svgRef={this.state.svgRef}
-              radius={this.state.dragDistance}
-              mousePos={this.state.mousePos}
-              minimumDragDistance={this.props.unlockDistance}
-              valueAngle={this.state.valueAngle}
-            />
-          )}
+        {/* {this.state.dragging &&
+          this.props.preciseMode && ( */}
+        <KnobVisualHelpers
+          svgRef={this.state.svgRef}
+          radius={this.state.dragDistance}
+          mousePos={this.state.mousePos}
+          minimumDragDistance={this.props.unlockDistance}
+          valueAngle={this.state.valueAngle}
+        />
+        {/* )} */}
       </React.Fragment>
     );
   }
